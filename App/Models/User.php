@@ -78,4 +78,27 @@ class User extends Model {
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function authenticate()
+    {
+        $query = "SELECT id, name, email FROM users where email = :email and password = :password";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':email', $this->__get('email'));
+        $stmt->bindValue(':password', $this->__get('password'));
+
+        $stmt->execute();
+
+        $return = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if (!empty($return)) {
+            $this->__set('id', $return['id']);
+            $this->__set('name', $return['name']);
+            
+            return true;
+        }
+
+        return false;
+    }
 }
