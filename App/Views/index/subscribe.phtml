@@ -18,15 +18,15 @@
             
             <form action="/register" method="post">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nome" name="name">
+                <input type="text" value="<?= $this->view->user['name'] ?>" class="form-control" placeholder="Nome" name="name">
               </div>
               
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="E-mail" name="email">
+                <input type="text" value="<?= $this->view->user['email'] ?>" class="form-control" placeholder="E-mail" name="email">
               </div>
 
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Senha" name="password">
+                <input type="password" value="<?= $this->view->user['password'] ?>" class="form-control" placeholder="Senha" name="password">
               </div>
               
               <div class="mt-4 mb-4">
@@ -35,6 +35,11 @@
                 </small>
               </div>
               <button type="submit" class="btn btn-primary btn-block">Inscrever-se</button>
+
+              <?php if ($this->view->errorRegister) { ?>
+                <small class="form-text text-danger">Erro ao tentar realizar o cadastro. Verifique os campos.</small>
+              <?php } ?>
+
             </form>
 
           </div>

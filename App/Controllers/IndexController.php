@@ -17,6 +17,14 @@ class indexController extends Action {
 
     public function subscribe()
     {
+        $this->view->user = array(
+            'name'       =>  NULL,
+            'email'      =>  NULL,
+            'password'   =>  NULL,
+        );
+
+        $this->view->errorRegister = false; 
+
         $this->render('subscribe');
     }
 
@@ -28,13 +36,22 @@ class indexController extends Action {
        $user->__set('email', $_POST['email']);
        $user->__set('password', $_POST['password']);
 
-       if ($user->validationRegister()) {
+       if ($user->validationRegister() &&
+            count($user->getUserEmail()) <= 0) {
 
-            if (count($user->getUserEmail()) <= 0) {
-                $user->store();
-                
-                return $this->render('register');
-            }
+            $user->store();
+
+            return $this->render('register');
        }
+
+       $this->view->user = array(
+           'name'       =>  $_POST['name'],
+           'email'      =>  $_POST['email'],
+           'password'   =>  $_POST['password'],
+       );
+
+       $this->view->errorRegister = true; 
+
+       return $this->render('subscribe');
     }
 }
