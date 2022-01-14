@@ -1,0 +1,7 @@
+<h1>Index</h1>
+
+<?php
+
+    foreach ($this->view->data as $key => $value) {
+        echo $value['id'] . ' - ' . $value['descricao'] . ' - ' . $value['preco'];
+    }
