@@ -12,4 +12,9 @@ class indexController extends Action {
     {
         $this->render('index');
     }
+
+    public function subscribe()
+    {
+        $this->render('subscribe');
+    }
 }

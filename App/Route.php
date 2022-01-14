@@ -14,6 +14,12 @@ class Route extends Bootstrap {
             'action'        =>  'index'
         );
 
+        $routes['subscribe'] = array(
+            'route'         =>  '/subscribe',
+            'controller'    =>  'IndexController',
+            'action'        =>  'subscribe'
+        );
+
         $this->setRoutes($routes);
     }
 }
