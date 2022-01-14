@@ -10,6 +10,6 @@ class indexController extends Action {
 
     public function index()
     {
-        $this->render('index', null);
+        $this->render('index');
     }
 }
