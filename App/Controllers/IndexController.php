@@ -6,7 +6,8 @@ namespace App\Controllers;
 use MF\Model\Container;
 use MF\Controller\Action;
 
-class indexController extends Action {
+class indexController extends Action
+{
 
     public function index()
     {
@@ -23,35 +24,37 @@ class indexController extends Action {
             'password'   =>  NULL,
         );
 
-        $this->view->errorRegister = false; 
+        $this->view->errorRegister = false;
 
         $this->render('subscribe');
     }
 
     public function register()
     {
-       $user = Container::getModel('User');
+        $user = Container::getModel('User');
 
-       $user->__set('name', $_POST['name']);
-       $user->__set('email', $_POST['email']);
-       $user->__set('password', $_POST['password']);
+        $user->__set('name', $_POST['name']);
+        $user->__set('email', $_POST['email']);
+        $user->__set('password', $_POST['password']);
 
-       if ($user->validationRegister() &&
-            count($user->getUserEmail()) <= 0) {
+        if (
+            $user->validationRegister() &&
+            count($user->getUserEmail()) <= 0
+        ) {
 
             $user->store();
 
             return $this->render('register');
-       }
+        }
 
-       $this->view->user = array(
-           'name'       =>  $_POST['name'],
-           'email'      =>  $_POST['email'],
-           'password'   =>  $_POST['password'],
-       );
+        $this->view->user = array(
+            'name'       =>  $_POST['name'],
+            'email'      =>  $_POST['email'],
+            'password'   =>  $_POST['password'],
+        );
 
-       $this->view->errorRegister = true; 
+        $this->view->errorRegister = true;
 
-       return $this->render('subscribe');
+        return $this->render('subscribe');
     }
 }
