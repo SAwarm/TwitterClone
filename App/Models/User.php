@@ -95,7 +95,7 @@ class User extends Model {
         if (!empty($return)) {
             $this->__set('id', $return['id']);
             $this->__set('name', $return['name']);
-            
+
             return true;
         }
 
