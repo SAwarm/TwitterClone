@@ -28,7 +28,10 @@ class Tweet extends Model
 
     public function save()
     {
-        $query = "INSERT INTO tweets (id_user, tweet) VALUES (:id_user, :tweet)";
+        $query = "INSERT INTO 
+                        tweets (id_user, tweet) 
+                    VALUES 
+                        (:id_user, :tweet)";
 
         $stmt = $this->db->prepare($query);
 
