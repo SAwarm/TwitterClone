@@ -10,8 +10,6 @@ class AppController extends Action
 
     public function timeline()
     {
-        session_start();
-
         $this->validationAuth();
 
         $tweet = Container::getModel('Tweet');
@@ -27,10 +25,8 @@ class AppController extends Action
 
     public function tweet()
     {
-        session_start();
-
         $this->validationAuth();
-        
+
         $tweet = Container::getModel('Tweet');
 
         $tweet->__set('tweet', $_POST['tweet']);
@@ -41,8 +37,31 @@ class AppController extends Action
         return header('Location: /timeline');
     }
 
+    public function who_to_follow()
+    {
+        $this->validationAuth();
+
+        $searchFor = !empty($_GET['searchFor']) ? $_GET['searchFor'] : '';
+
+        $users = array();
+
+        if (!empty($searchFor)) {
+            $user = Container::getModel('User');
+
+            $user->__set('name', $searchFor);
+
+            $users = $user->getAll();
+        }
+
+        $this->view->users = $users;
+
+        $this->render('who_to_follow');
+    }
+
     public function validationAuth()
     {
+        session_start();
+
         if (!empty($_SESSION)) {
             return true;
         }
