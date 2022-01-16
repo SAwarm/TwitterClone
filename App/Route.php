@@ -50,6 +50,12 @@ class Route extends Bootstrap {
             'action'        =>  'tweet'
         );
 
+        $routes['who_to_follow'] = array(
+            'route'         =>  '/who_to_follow',
+            'controller'    =>  'AppController',
+            'action'        =>  'who_to_follow'
+        );
+
         $this->setRoutes($routes);
     }
 }
