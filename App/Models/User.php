@@ -104,11 +104,12 @@ class User extends Model {
 
     public function getAll()
     {
-        $query = "SELECT id, name, email FROM users where name LIKE :name";
+        $query = "SELECT u.id, u.name, u.email, (SELECT count(*) FROM users_follows as u_f where u_f.id_user = :id_user AND u_f.id_user_follow = u.id) as follow FROM users as u where name LIKE :name AND id != :id_user";
 
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':name', '%'.$this->__get('name').'%');
+        $stmt->bindValue(':id_user', $this->__get('id'));
 
         $stmt->execute();
 
