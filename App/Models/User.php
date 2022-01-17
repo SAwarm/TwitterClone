@@ -81,7 +81,14 @@ class User extends Model {
 
     public function authenticate()
     {
-        $query = "SELECT id, name, email FROM users where email = :email and password = :password";
+        $query = "SELECT 
+                        id, name, email 
+                    FROM 
+                        users 
+                    WHERE 
+                        email = :email 
+                    AND 
+                        password = :password";
 
         $stmt = $this->db->prepare($query);
 
@@ -104,7 +111,28 @@ class User extends Model {
 
     public function getAll()
     {
-        $query = "SELECT u.id, u.name, u.email, (SELECT count(*) FROM users_follows as u_f where u_f.id_user = :id_user AND u_f.id_user_follow = u.id) as follow FROM users as u where name LIKE :name AND id != :id_user";
+        $query = "SELECT 
+                        u.id, u.name, u.email, 
+                    (SELECT 
+                        count(*) 
+                    FROM 
+                        users_follows 
+                    AS 
+                        u_f 
+                    WHERE 
+                        u_f.id_user = :id_user 
+                    AND 
+                        u_f.id_user_follow = u.id) 
+                    AS 
+                        follow 
+                    FROM 
+                        users 
+                    AS 
+                        u 
+                    WHERE 
+                        name LIKE :name 
+                    AND 
+                        id != :id_user";
 
         $stmt = $this->db->prepare($query);
 
