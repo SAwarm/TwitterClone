@@ -48,6 +48,7 @@ class AppController extends Action
         if (!empty($searchFor)) {
             $user = Container::getModel('User');
 
+            $user->__set('id', $_SESSION['id']);
             $user->__set('name', $searchFor);
 
             $users = $user->getAll();
@@ -56,6 +57,35 @@ class AppController extends Action
         $this->view->users = $users;
 
         $this->render('who_to_follow');
+    }
+
+    public function action()
+    {
+        $this->validationAuth();
+        
+        $action = !empty($_GET['action']) ? $_GET['action'] : '';
+
+        $id_user_follow = !empty($_GET['id_user']) ? $_GET['id_user'] : '';
+
+        $userFollow = Container::getModel('UserToFollow');
+
+        $userFollow->__set('id_user', $_SESSION['id']);
+        $userFollow->__set('id_user_follow', $id_user_follow);
+
+        if ($action == "follow") {
+
+            if ($userFollow->follow()) {
+                return header('Location: /who_to_follow');
+            }
+
+            //return header('Location: /who_to_follow');
+        }
+
+        if ($userFollow->unfollow()) {
+            return header('Location: /who_to_follow');
+        }
+
+        //return header('Location: /who_to_follow');
     }
 
     public function validationAuth()
