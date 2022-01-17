@@ -59,6 +59,15 @@ class Tweet extends Model
                         t.id_user = u.id
                     WHERE
                         id_user = :id_user
+                    OR
+                        t.id_user
+                    IN
+                        (SELECT
+                            id_user_follow
+                        FROM
+                            users_follows
+                        WHERE 
+                            id_user = :id_user)
                     ORDER BY
                         t.data DESC";
 
