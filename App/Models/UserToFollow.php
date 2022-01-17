@@ -24,7 +24,10 @@ class UserToFollow extends Model
 
     public function follow()
     {
-        $query = "INSERT INTO users_follows (id_user, id_user_follow) VALUES (:id_user, :id_user_follow)";
+        $query = "INSERT INTO 
+                        users_follows (id_user, id_user_follow) 
+                    VALUES 
+                        (:id_user, :id_user_follow)";
 
         $stmt = $this->db->prepare($query);
 
@@ -38,7 +41,12 @@ class UserToFollow extends Model
 
     public function unfollow()
     {
-        $query = "DELETE FROM users_follows where id_user = :id_user AND id_user_follow = :id_user_follow";
+        $query = "DELETE FROM 
+                        users_follows 
+                    WHERE 
+                        id_user = :id_user 
+                    AND 
+                        id_user_follow = :id_user_follow";
 
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':id_user', $this->__get('id_user'));
