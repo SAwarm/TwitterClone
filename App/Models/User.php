@@ -142,5 +142,57 @@ class User extends Model {
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } 
+    }
+
+    public function getInfoUser()
+    {
+        $query = "SELECT * FROM users WHERE id = :id_user";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':id_user', $this->__get('id'));
+
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getTotalTweet()
+    {
+        $query = "SELECT count(*) as total_tweet FROM tweets WHERE id_user = :id_user";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':id_user', $this->__get('id'));
+
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getTotalFollows()
+    {
+        $query = "SELECT count(*) as total_follows FROM users_follows WHERE id_user = :id_user";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':id_user', $this->__get('id'));
+
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getTotalToFollows()
+    {
+        $query = "SELECT count(*) as total_to_follows FROM users_follows WHERE id_user_follow = :id_user";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':id_user', $this->__get('id'));
+
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
