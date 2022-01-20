@@ -26,6 +26,11 @@ class ComponentsController extends Action
     {
         $this->getUserInfo();
 
-        $this->render('userPanel');
+        $this->render('user_panel');
+    }
+
+    public function getNavBar()
+    {
+        $this->render('nav_bar');
     }
 }
