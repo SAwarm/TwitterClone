@@ -1,0 +1,26 @@
+<div class="perfilPainel">
+    <div class="row mt-2 mb-2">
+        <div class="col mb-2">
+            <span class="perfilPainelNome"><?= $this->view->infoUser['name']; ?></span>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+
+        <div class="col">
+            <span class="perfilPainelItem">Tweets</span><br />
+            <span class="perfilPainelItemValor"><?= $this->view->totalTweet['total_tweet']; ?></span>
+        </div>
+
+        <div class="col">
+            <span class="perfilPainelItem">Seguindo</span><br />
+            <span class="perfilPainelItemValor"><?= $this->view->totalFollow['total_follows']; ?></span>
+        </div>
+
+        <div class="col">
+            <span class="perfilPainelItem">Seguidores</span><br />
+            <span class="perfilPainelItemValor"><?= $this->view->totalToFollow['total_to_follows']; ?></span>
+        </div>
+
+    </div>
+</div>
