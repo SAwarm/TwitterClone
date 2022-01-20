@@ -146,7 +146,12 @@ class User extends Model {
 
     public function getInfoUser()
     {
-        $query = "SELECT * FROM users WHERE id = :id_user";
+        $query = "SELECT 
+                        * 
+                    FROM 
+                        users
+                    WHERE 
+                        id = :id_user";
 
         $stmt = $this->db->prepare($query);
 
@@ -159,7 +164,14 @@ class User extends Model {
 
     public function getTotalTweet()
     {
-        $query = "SELECT count(*) as total_tweet FROM tweets WHERE id_user = :id_user";
+        $query = "SELECT 
+                        count(*)
+                    AS 
+                        total_tweet 
+                    FROM 
+                        tweets 
+                    WHERE 
+                        id_user = :id_user";
 
         $stmt = $this->db->prepare($query);
 
@@ -172,7 +184,14 @@ class User extends Model {
 
     public function getTotalFollows()
     {
-        $query = "SELECT count(*) as total_follows FROM users_follows WHERE id_user = :id_user";
+        $query = "SELECT 
+                        count(*) 
+                    AS 
+                        total_follows 
+                    FROM 
+                        users_follows 
+                    WHERE 
+                        id_user = :id_user";
 
         $stmt = $this->db->prepare($query);
 
@@ -185,7 +204,14 @@ class User extends Model {
 
     public function getTotalToFollows()
     {
-        $query = "SELECT count(*) as total_to_follows FROM users_follows WHERE id_user_follow = :id_user";
+        $query = "SELECT 
+                        count(*) 
+                    AS 
+                        total_to_follows 
+                    FROM 
+                        users_follows 
+                    WHERE 
+                        id_user_follow = :id_user";
 
         $stmt = $this->db->prepare($query);
 
