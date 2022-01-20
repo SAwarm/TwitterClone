@@ -20,18 +20,6 @@ class AppController extends Action
 
         $this->view->tweets = $tweets;
 
-        $user = Container::getModel('User');
-
-        $user->__set('id', $_SESSION['id']);
-
-        $this->view->infoUser = $user->getInfoUser();
-
-        $this->view->totalTweet = $user->getTotalTweet();
-
-        $this->view->totalFollow = $user->getTotalFollows();
-
-        $this->view->totalToFollow = $user->getTotalToFollows();
-
         return $this->render('timeline');
     }
 
@@ -100,9 +88,20 @@ class AppController extends Action
         //return header('Location: /who_to_follow');
     }
 
+    public function getUserPanel()
+    {
+        $this->validationAuth();
+
+        $components = new ComponentsController();
+
+        $components->getUserPanel();
+    }
+
     public function validationAuth()
     {
-        session_start();
+        if (empty($_SESSION)) { 
+            session_start(); 
+        }
 
         if (!empty($_SESSION)) {
             return true;
