@@ -107,6 +107,15 @@ class AppController extends Action
         $components->getUserPanel();
     }
 
+    public function getNavBar()
+    {
+        $this->validationAuth();
+
+        $components = new ComponentsController();
+
+        $components->getNavBar();
+    }
+
     public function validationAuth()
     {
         if (empty($_SESSION)) { 
