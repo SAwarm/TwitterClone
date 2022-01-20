@@ -27,6 +27,16 @@ class AppController extends Action
     {
         $this->validationAuth();
 
+        if (!empty($_GET['id'])) {
+            $tweet = Container::getModel('Tweet');
+
+            $tweet->__set('id', $_GET['id']);
+
+            $tweet->delete();
+
+            return header('Location: /timeline');
+        }
+
         $tweet = Container::getModel('Tweet');
 
         $tweet->__set('tweet', $_POST['tweet']);
