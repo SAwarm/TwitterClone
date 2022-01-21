@@ -36,7 +36,7 @@
 						<p><?= $value['tweet'] ?></p>
 						<br />
 						<?php if ($value['id_user'] == $_SESSION['id']) { ?>
-							<form method="POST" action="/tweet?id=<?=$value['id_user']?>">
+							<form method="POST" action="/tweet?id=<?=$value['id']?>">
 								<div class="col d-flex justify-content-end">
 									<button type="submit" class="btn btn-danger"><small>Remover</small></button>
 								</div>
