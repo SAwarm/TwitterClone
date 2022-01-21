@@ -72,7 +72,7 @@ class AppController extends Action
     public function action()
     {
         $this->validationAuth();
-        
+
         $action = !empty($_GET['action']) ? $_GET['action'] : '';
 
         $id_user_follow = !empty($_GET['id_user']) ? $_GET['id_user'] : '';
@@ -118,8 +118,8 @@ class AppController extends Action
 
     public function validationAuth()
     {
-        if (empty($_SESSION)) { 
-            session_start(); 
+        if (empty($_SESSION)) {
+            session_start();
         }
 
         if (!empty($_SESSION)) {
