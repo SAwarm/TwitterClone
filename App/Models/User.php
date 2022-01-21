@@ -5,8 +5,9 @@ namespace App\Models;
 use MF\Model\Model;
 use PDO;
 
-class User extends Model {
-    
+class User extends Model
+{
+
     private $id;
 
     private $name;
@@ -69,7 +70,7 @@ class User extends Model {
                         users 
                     WHERE
                         email = :email";
-        
+
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':email', $this->__get('email'));
@@ -136,7 +137,7 @@ class User extends Model {
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':name', '%'.$this->__get('name').'%');
+        $stmt->bindValue(':name', '%' . $this->__get('name') . '%');
         $stmt->bindValue(':id_user', $this->__get('id'));
 
         $stmt->execute();
