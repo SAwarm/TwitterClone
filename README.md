@@ -4,11 +4,19 @@ Utilizando padrões de arquitetura MVC com o modelo PSR-4.
 
 ## PROJETO
 
-<img src="./screenshots/login.png">
+<img src="./app_readme/screenshots/login.png">
 <br>
-<img src="./screenshots/register.png">
+<img src="./app_readme/screenshots/register.png">
 
 ## Como instalar
+
+Primeiramente, crie o database no localhost/phpmyadmin
+(opção já configurada, mas nada impede de você configurar
+o banco de dados da aplicação, em outro server)
+
+```
+$ Execute a query do banco contida na pasta /app_readme/database do projeto (export do database)
+```
 
 Clone da aplicação para alguma pasta de sua escolha
 
