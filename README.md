@@ -10,9 +10,7 @@ Utilização do padrão de arquitetura MVC com o modelo PSR-4.
 ## Projeto
 
 <img src="./app_readme/screenshots/login.png">
-<br>
 <hr>
-<br>
 <img src="./app_readme/screenshots/register.png">
 
 ## Como instalar
