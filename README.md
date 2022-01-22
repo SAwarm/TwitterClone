@@ -2,6 +2,9 @@
 Este é um repositório do Twitter Clone. Desenvolvido em PHP, utilizando padrões da orientação a obejtos.
 Utilizando padrões de arquitetura MVC com o modelo PSR-4. 
 
-## Fotos de algumas telas
+## LOGIN
 
-<img src="./screenshots/login.png" width="300">
+<img src="./screenshots/login.png">
+
+## REGISTER
+<img src="./screenshots/register.png">
