@@ -3,7 +3,7 @@ Este é um repositório do projeto: Twitter Clone. Desenvolvido em PHP, por Jona
 utilizando padrões da orientação a objetos.
 Utilização do padrão de arquitetura MVC com o modelo PSR-4.
 
-**[LinkedIn do Desenvolvedor](https://www.linkedin.com/in/jonas-elias-475852215/)**<br>
+**[LinkedIn](https://www.linkedin.com/in/jonas-elias-475852215/)**<br>
 **[Documentação PHP](https://www.php.net/docs.php)**<br>
 **[Documentação Composer](https://getcomposer.org/doc/)**<br>
 
@@ -16,7 +16,7 @@ Utilização do padrão de arquitetura MVC com o modelo PSR-4.
 ## Como instalar
 
 Primeiramente, crie o database no localhost/phpmyadmin
-(opção já configurada, mas nada impede de você configurar
+(opção já configurada na ConnectionPHP, mas nada impede você de configurar
 o banco de dados da aplicação, em outro server)
 
 ```
