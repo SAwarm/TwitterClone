@@ -13,7 +13,7 @@ Utilização do padrão de arquitetura MVC com o modelo PSR-4.
 <hr>
 <img src="./app_readme/screenshots/register.png">
 
-## Como instalar
+## Como usar
 
 Primeiramente, crie o database no localhost/phpmyadmin
 (opção já configurada na ConnectionPHP, mas nada impede você de configurar
