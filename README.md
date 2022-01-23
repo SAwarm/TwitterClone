@@ -1,5 +1,5 @@
 # Twitter Clone
-Este é um repositório do projeto: Twitter Clone. Desenvolvido em PHP, por Jonas da Silva Elias,
+Este é um repositório do projeto: Twitter Clone. Desenvolvido em PHP 8, por Jonas da Silva Elias,
 utilizando padrões da orientação a objetos.
 Utilização do padrão de arquitetura MVC com o modelo PSR-4.
 
